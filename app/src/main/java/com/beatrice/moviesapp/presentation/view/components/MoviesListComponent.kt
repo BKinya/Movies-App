@@ -7,12 +7,15 @@ import androidx.compose.animation.scaleOut
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.beatrice.moviesapp.data.model.Movie
@@ -22,6 +25,8 @@ import com.beatrice.moviesapp.data.model.Movie
 fun MoviesListComponent(
     movies: List<Movie>,
 ) {
+    val state = rememberLazyListState()
+    val scope = rememberCoroutineScope()
     val showFab = false
     Scaffold(
         floatingActionButton = {
@@ -31,7 +36,7 @@ fun MoviesListComponent(
                 exit = scaleOut(),
             ) {
                 MoviesFab {
-
+                    // Scroll up
                 }
             }
         }
@@ -48,7 +53,6 @@ fun MoviesListComponent(
          */
         LazyColumn(
             modifier = Modifier.padding(vertical = 48.dp, horizontal = 16.dp),
-
         ) {
             items(movies) { movie ->
                 MovieComponent(
@@ -60,14 +64,28 @@ fun MoviesListComponent(
 }
 
 
-@Preview
+@Preview(device = Devices.PHONE)
 @Composable
-fun MoviesListComponentPreview() {
+fun MoviesListComponentPreviewPhone() {
     Surface(color = Color.White) {
         MoviesListComponent(movies = movieList)
     }
 }
 
+@Preview(device = Devices.FOLDABLE)
+@Composable
+fun MoviesListComponentPreviewFoldable() {
+    Surface(color = Color.White) {
+        MoviesListComponent(movies = movieList)
+    }
+}
+@Preview(device = Devices.TABLET)
+@Composable
+fun MoviesListComponentPreviewTablet() {
+    Surface(color = Color.White) {
+        MoviesListComponent(movies = movieList)
+    }
+}
 val movieList = listOf(
     Movie(
         id = 0,

@@ -38,7 +38,7 @@ fun MovieScreen(
                 ProgressIndicatorComponent()
             }
             is MoviesViewState.MoviesList -> {
-                MoviesListComponent(movies = moviesState.movies, navigateToMovieDetails = navigateToMovieDetails)
+                MoviesListComponent(movies = moviesState.movies)
             }
             is MoviesViewState.Error -> {
                 ErrorMessageComponent(message = moviesState.message)
