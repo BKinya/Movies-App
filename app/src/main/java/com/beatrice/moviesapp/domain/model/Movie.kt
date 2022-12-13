@@ -1,6 +1,7 @@
 package com.beatrice.moviesapp.domain.model
 
 import android.os.Parcelable
+import com.beatrice.moviesapp.data.database.model.MovieEntity
 import com.beatrice.moviesapp.data.network.model.MovieNetworkResult
 import kotlinx.parcelize.Parcelize
 
@@ -36,6 +37,24 @@ fun MovieNetworkResult.toMoviesList(): List<Movie> {
         )
     } ?: emptyList()
 }
+
+fun List<Movie>.toMovieEntityList(): List<MovieEntity> = map {
+    MovieEntity(
+        id = it.id,
+        title = it.title,
+        originalTitle = it.originalTitle,
+        language = it.language,
+        releaseDate = it.releaseDate,
+        voteAverage = it.voteAverage,
+        voteCount = it.voteCount,
+        popularity = it.popularity,
+        posterPath = it.posterPath,
+        backdropPath = it.backdropPath,
+        overview = it.overview
+
+    )
+}.toList()
+
 
 
 
