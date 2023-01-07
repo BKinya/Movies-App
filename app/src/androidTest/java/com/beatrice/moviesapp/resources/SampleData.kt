@@ -2,7 +2,7 @@ package com.beatrice.moviesapp.resources
 
 import com.beatrice.moviesapp.core.database.model.MovieEntity
 
-val fakeMovieList = MovieEntity(
+val fakeMovie = MovieEntity(
     id = 123,
     title = "Prison Break",
     originalTitle = "The Prison Break",

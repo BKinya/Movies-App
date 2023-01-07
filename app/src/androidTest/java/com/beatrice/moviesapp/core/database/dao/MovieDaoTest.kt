@@ -6,7 +6,7 @@ import kotlinx.coroutines.runBlocking
 import org.junit.After
 import org.junit.Before
 import androidx.test.platform.app.InstrumentationRegistry
-import com.beatrice.moviesapp.resources.fakeMovieList
+import com.beatrice.moviesapp.resources.fakeMovie
 import org.junit.Assert
 import org.junit.Test
 
@@ -14,6 +14,7 @@ class MovieDaoTest {
 
     private lateinit var database: MoviesDatabase
     private lateinit var movieDao: MovieDao
+    private val moviesIds = listOf(fakeMovie.id)
 
     @Before
     fun setUp() {
@@ -26,7 +27,7 @@ class MovieDaoTest {
     @After
     fun tearDown() {
         runBlocking {
-            movieDao.deleteMovies()
+            movieDao.deleteMovies(moviesIds)
             database.close()
         }
     }
@@ -34,7 +35,7 @@ class MovieDaoTest {
     @Test
     fun insertMovies() {
         runBlocking {
-            val moviesTestFake = fakeMovieList
+            val moviesTestFake = fakeMovie
 
             val reposTestListUtil = listOf(moviesTestFake)
             movieDao.insertMovies(reposTestListUtil)
@@ -47,8 +48,8 @@ class MovieDaoTest {
     @Test
     fun deleteMovies() {
         runBlocking {
-            movieDao.insertMovies(listOf(fakeMovieList))
-            movieDao.deleteMovies()
+            movieDao.insertMovies(listOf(fakeMovie))
+            movieDao.deleteMovies(moviesIds)
             val usersFollowers = movieDao.getMovies()
             assert(usersFollowers.isEmpty())
         }

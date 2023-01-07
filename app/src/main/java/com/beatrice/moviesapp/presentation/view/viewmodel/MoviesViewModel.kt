@@ -73,5 +73,6 @@ class MoviesViewModel @Inject constructor(
 
     private fun markFavourite() {
 
+
     }
 }
