@@ -1,5 +1,6 @@
 package com.beatrice.moviesapp.core.repository
 
+import com.beatrice.moviesapp.core.data.repository.MovieRepositoryImpl
 import com.beatrice.moviesapp.utils.FakeMovieDao
 import com.beatrice.moviesapp.utils.FakeMoviesDataSource
 import kotlinx.coroutines.test.runTest

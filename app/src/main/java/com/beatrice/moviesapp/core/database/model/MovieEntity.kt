@@ -2,7 +2,7 @@ package com.beatrice.moviesapp.core.database.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.beatrice.moviesapp.domain.model.MovieDomainModel
+import com.beatrice.moviesapp.core.domain.model.MovieDomainModel
 
 @Entity(tableName = "movie_table")
 data class MovieEntity(

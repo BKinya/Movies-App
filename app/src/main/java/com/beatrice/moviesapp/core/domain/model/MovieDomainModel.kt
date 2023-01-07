@@ -1,4 +1,4 @@
-package com.beatrice.moviesapp.domain.model
+package com.beatrice.moviesapp.core.domain.model
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

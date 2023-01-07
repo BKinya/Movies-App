@@ -31,7 +31,7 @@ import androidx.constraintlayout.compose.ConstraintLayout
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.beatrice.moviesapp.R
-import com.beatrice.moviesapp.domain.model.MovieDomainModel
+import com.beatrice.moviesapp.core.domain.model.MovieDomainModel
 
 @Composable
 fun MovieComponent(

@@ -1,4 +1,4 @@
-package com.beatrice.moviesapp.core.repository
+package com.beatrice.moviesapp.core.data.repository
 
 import com.beatrice.moviesapp.core.data.changeListSync
 import com.beatrice.moviesapp.core.data.util.MovieEnums
@@ -7,8 +7,8 @@ import com.beatrice.moviesapp.core.database.model.MovieEntity
 import com.beatrice.moviesapp.core.database.model.toMoviesList
 import com.beatrice.moviesapp.core.network.datasource.MoviesDataSource
 import com.beatrice.moviesapp.core.network.model.toMovieEntityList
-import com.beatrice.moviesapp.domain.model.MovieDomainModel
-import com.beatrice.moviesapp.domain.repository.MovieRepository
+import com.beatrice.moviesapp.core.domain.model.MovieDomainModel
+import com.beatrice.moviesapp.core.domain.repository.MovieRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject

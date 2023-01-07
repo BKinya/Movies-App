@@ -1,7 +1,7 @@
-package com.beatrice.moviesapp.core.di
+package com.beatrice.moviesapp.core.data.repository.di
 
-import com.beatrice.moviesapp.domain.repository.MovieRepository
-import com.beatrice.moviesapp.core.repository.MovieRepositoryImpl
+import com.beatrice.moviesapp.core.domain.repository.MovieRepository
+import com.beatrice.moviesapp.core.data.repository.MovieRepositoryImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
