@@ -47,7 +47,7 @@ object ApiModule {
     @Singleton
     @Provides
     fun provideAuthInterceptor() = Interceptor { chain ->
-        val accessToken = BuildConfig.TDMB_API_KEY
+        val accessToken = BuildConfig.TMDB_API_KEY
         val original = chain.request()
         val url = original.url.newBuilder().addQueryParameter("api_key", accessToken).build()
         val request = chain.request().newBuilder().url(url).build()

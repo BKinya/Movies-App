@@ -7,7 +7,7 @@ plugins {
     id("com.google.dagger.hilt.android")
     id("kotlin-parcelize")
 }
-val tdmbApiKey: String = gradleLocalProperties(rootDir).getProperty("TDMB_API_KEY")
+val tmdbApiKey: String = gradleLocalProperties(rootDir).getProperty("TMDB_API_KEY")
 
 android {
     namespace = "com.beatrice.moviesapp"
@@ -29,7 +29,7 @@ android {
     buildTypes {
         getByName("release") {
             buildConfigField("String", "BASE_URL", "\"https://api.themoviedb.org/3/\"")
-            buildConfigField("String", "TDMB_API_KEY", tdmbApiKey)
+            buildConfigField("String", "TMDB_API_KEY", tmdbApiKey)
             // TODO: Create a reusable variable
 
             val minifyEnabled = false
@@ -40,7 +40,7 @@ android {
         }
         getByName("debug") {
             buildConfigField("String", "BASE_URL", "\"https://api.themoviedb.org/3/\"")
-            buildConfigField("String", "TDMB_API_KEY", tdmbApiKey)
+            buildConfigField("String", "TMDB_API_KEY", tmdbApiKey)
         }
     }
     compileOptions {
@@ -71,13 +71,6 @@ dependencies {
     implementation("androidx.compose.ui:ui:$composeVersion")
     implementation("androidx.compose.ui:ui-tooling-preview:$composeVersion")
 
-
-    // Lifecycle
-    val lifecycle_version = "2.6.0-alpha03"
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version")
-    implementation("androidx.lifecycle:lifecycle-runtime-compose:$lifecycle_version")
-
     // Material 3
     implementation("androidx.compose.material3:material3:1.1.0-alpha03")
 
@@ -85,14 +78,20 @@ dependencies {
     implementation("androidx.constraintlayout:constraintlayout-compose:1.0.1")
 
     // Navigation
-    val nav_version = "2.5.3"
-    implementation("androidx.navigation:navigation-compose:$nav_version")
+    val navVersion = "2.5.3"
+    implementation("androidx.navigation:navigation-compose:$navVersion")
+
+    // Lifecycle
+    val lifecycleVersion = "2.6.0-alpha03"
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycleVersion")
+    implementation("androidx.lifecycle:lifecycle-runtime-compose:$lifecycleVersion")
 
     // Room
-    val room_version = "2.4.3"
-    implementation("androidx.room:room-runtime:$room_version")
-    implementation("androidx.room:room-ktx:$room_version")
-    kapt("androidx.room:room-compiler:$room_version")
+    val roomVersion = "2.4.3"
+    implementation("androidx.room:room-runtime:$roomVersion")
+    implementation("androidx.room:room-ktx:$roomVersion")
+    kapt("androidx.room:room-compiler:$roomVersion")
 
     // Retrofit
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
